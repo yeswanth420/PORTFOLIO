@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Grand Design</title>
+    <title>Portfolio - Yeswanth A</title>
     <style>
         * {
             margin: 0;
@@ -442,6 +442,45 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success/Error Messages */
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .message.success {
+            background: rgba(76, 175, 80, 0.3);
+            border: 2px solid #4CAF50;
+            color: #fff;
+            display: block;
+        }
+        
+        .message.error {
+            background: rgba(244, 67, 54, 0.3);
+            border: 2px solid #f44336;
+            color: #fff;
+            display: block;
+        }
         
         /* Footer */
         footer {
@@ -550,13 +589,10 @@
             <div class="about-text">
                 <h3>Hello, I'm Yeswanth A</h3>
                 <p>I'm an IT Support Engineer with hands-on experience in managing system operations, troubleshooting network issues, and maintaining smooth IT infrastructure.
-Over time, I've developed a strong interest in Cloud Computing and DevOps automation, focusing on how to make systems more reliable, scalable, and efficient.
-
-I'm currently expanding my expertise in AWS Cloud Services, Docker, Kubernetes, and CI/CD tools like Jenkins and GitHub Actions.
-My goal is to bridge the gap between IT operations and cloud automation-ensuring seamless deployments and high system uptime.
-
-I enjoy solving problems, learning new technologies, and building a career in the Cloud & DevOps domain.</p>
-                <p>My journey in IT started with a curiosity about how systems and networks work, and it has grown into a strong passion for cloud technologies and automation.</p>
+Over time, I've developed a strong interest in Cloud Computing and DevOps automation, focusing on how to make systems more reliable, scalable, and efficient.</p>
+                <p>I'm currently expanding my expertise in AWS Cloud Services, Docker, Kubernetes, and CI/CD tools like Jenkins and GitHub Actions.
+My goal is to bridge the gap between IT operations and cloud automation-ensuring seamless deployments and high system uptime.</p>
+                <p>I enjoy solving problems, learning new technologies, and building a career in the Cloud & DevOps domain.</p>
                 <a href="#contact" class="cta-button">Get In Touch</a>
             </div>
         </div>
@@ -567,32 +603,32 @@ I enjoy solving problems, learning new technologies, and building a career in th
         <h2 class="section-title">My Skills</h2>
         <div class="skills-grid">
             <div class="skill-card">
-                <div class="skill-icon">??</div>
+                <div class="skill-icon">🖥️</div>
                 <h3>IT Support & Networking</h3>
                 <p>Hands-on experience in IT infrastructure maintenance, troubleshooting LAN/WAN issues, printer and hardware configuration, and providing end-user support for seamless operations.</p>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">??</div>
+                <div class="skill-icon">⚙️</div>
                 <h3>System Administration</h3>
                 <p>Experienced in handling Windows and Linux servers, user management, backups, and troubleshooting. Skilled in diagnosing network and system issues efficiently.</p>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">??</div>
+                <div class="skill-icon">☁️</div>
                 <h3>Cloud Computing</h3>
                 <p>Experience in deploying and managing cloud infrastructure using AWS services like EC2, S3, IAM, and VPC. Skilled in creating scalable and secure environments for production systems.</p>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">?</div>
+                <div class="skill-icon">🚀</div>
                 <h3>DevOps Automation</h3>
                 <p>Strong understanding of CI/CD pipelines, version control, and infrastructure automation. Hands-on with tools such as Jenkins, GitHub Actions, Terraform, and Ansible to streamline development and deployment.</p>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">??</div>
+                <div class="skill-icon">🐳</div>
                 <h3>Containerization & Orchestration</h3>
                 <p>Proficient in using Docker for container management and Kubernetes for orchestration, ensuring efficient deployment, scaling, and monitoring of applications.</p>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">??</div>
+                <div class="skill-icon">🔒</div>
                 <h3>Monitoring & Security</h3>
                 <p>Knowledge of system monitoring tools like CloudWatch and Grafana. Focused on maintaining secure configurations, IAM role management, and ensuring compliance within cloud environments.</p>
             </div>
@@ -630,7 +666,7 @@ I enjoy solving problems, learning new technologies, and building a career in th
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
                 <div class="project-info">
-                    <h3>IT Asset Maintanance</h3>
+                    <h3>IT Asset Maintenance</h3>
                     <p>An interactive analytics dashboard with beautiful data visualizations and real-time updates.</p>
                     <div class="project-tags">
                         <span class="tag">Vue.js</span>
@@ -647,12 +683,15 @@ I enjoy solving problems, learning new technologies, and building a career in th
         <div class="contact-content">
             <h2>Let's Work Together</h2>
             <p>Have a project in mind? Let's create something amazing together!</p>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject">
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit" class="submit-button">Send Message</button>
+            
+            <div id="statusMessage" class="message"></div>
+            
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-button" id="submitBtn">Send Message</button>
             </form>
         </div>
     </section>
@@ -660,12 +699,12 @@ I enjoy solving problems, learning new technologies, and building a career in th
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="#">.</a>
-            <a href="#">.</a>
-            <a href="#">.</a>
-            <a href="#">.</a>
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="#" title="LinkedIn">💼</a>
+            <a href="#" title="Instagram">📷</a>
         </div>
-        <p>&copy; 2024 Portfolio. All rights reserved Yeswanth.</p>
+        <p>&copy; 2024 Portfolio. All rights reserved by Yeswanth.</p>
     </footer>
 
     <script>
@@ -697,11 +736,48 @@ I enjoy solving problems, learning new technologies, and building a career in th
             observer.observe(el);
         });
 
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        // AJAX Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const statusMessage = document.getElementById('statusMessage');
+            const formData = new FormData(this);
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Send form data using AJAX
+            fetch('send-email.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    statusMessage.className = 'message success';
+                    statusMessage.textContent = '✓ ' + data.message;
+                    document.getElementById('contactForm').reset();
+                } else {
+                    statusMessage.className = 'message error';
+                    statusMessage.textContent = '✗ ' + data.message;
+                }
+                
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+            })
+            .catch(error => {
+                statusMessage.className = 'message error';
+                statusMessage.textContent = '✗ Failed to send message. Please try again.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
         });
     </script>
 </body>
