@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Yeswanth A</title>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- [Keep all your existing CSS here - same as before] -->
     <style>
+        /* ALL YOUR EXISTING CSS - Don't change anything */
         * {
             margin: 0;
             padding: 0;
@@ -542,19 +548,10 @@
                 grid-template-columns: 1fr;
             }
         }
-        
-        /* Floating Animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
     </style>
 </head>
 <body>
+    <!-- ALL YOUR EXISTING HTML CONTENT -->
     <!-- Navigation -->
     <nav>
         <div class="logo">PORTFOLIO</div>
@@ -588,11 +585,8 @@
             </div>
             <div class="about-text">
                 <h3>Hello, I'm Yeswanth A</h3>
-                <p>I'm an IT Support Engineer with hands-on experience in managing system operations, troubleshooting network issues, and maintaining smooth IT infrastructure.
-Over time, I've developed a strong interest in Cloud Computing and DevOps automation, focusing on how to make systems more reliable, scalable, and efficient.</p>
-                <p>I'm currently expanding my expertise in AWS Cloud Services, Docker, Kubernetes, and CI/CD tools like Jenkins and GitHub Actions.
-My goal is to bridge the gap between IT operations and cloud automation-ensuring seamless deployments and high system uptime.</p>
-                <p>I enjoy solving problems, learning new technologies, and building a career in the Cloud & DevOps domain.</p>
+                <p>I'm an IT Support Engineer with hands-on experience in managing system operations, troubleshooting network issues, and maintaining smooth IT infrastructure. Over time, I've developed a strong interest in Cloud Computing and DevOps automation.</p>
+                <p>I'm currently expanding my expertise in AWS Cloud Services, Docker, Kubernetes, and CI/CD tools like Jenkins and GitHub Actions. My goal is to bridge the gap between IT operations and cloud automation.</p>
                 <a href="#contact" class="cta-button">Get In Touch</a>
             </div>
         </div>
@@ -605,32 +599,32 @@ My goal is to bridge the gap between IT operations and cloud automation-ensuring
             <div class="skill-card">
                 <div class="skill-icon">🖥️</div>
                 <h3>IT Support & Networking</h3>
-                <p>Hands-on experience in IT infrastructure maintenance, troubleshooting LAN/WAN issues, printer and hardware configuration, and providing end-user support for seamless operations.</p>
+                <p>Hands-on experience in IT infrastructure maintenance, troubleshooting LAN/WAN issues, and providing end-user support.</p>
             </div>
             <div class="skill-card">
                 <div class="skill-icon">⚙️</div>
                 <h3>System Administration</h3>
-                <p>Experienced in handling Windows and Linux servers, user management, backups, and troubleshooting. Skilled in diagnosing network and system issues efficiently.</p>
+                <p>Experienced in Windows and Linux servers, user management, backups, and troubleshooting.</p>
             </div>
             <div class="skill-card">
                 <div class="skill-icon">☁️</div>
                 <h3>Cloud Computing</h3>
-                <p>Experience in deploying and managing cloud infrastructure using AWS services like EC2, S3, IAM, and VPC. Skilled in creating scalable and secure environments for production systems.</p>
+                <p>AWS services like EC2, S3, IAM, and VPC. Skilled in creating scalable and secure environments.</p>
             </div>
             <div class="skill-card">
                 <div class="skill-icon">🚀</div>
                 <h3>DevOps Automation</h3>
-                <p>Strong understanding of CI/CD pipelines, version control, and infrastructure automation. Hands-on with tools such as Jenkins, GitHub Actions, Terraform, and Ansible to streamline development and deployment.</p>
+                <p>CI/CD pipelines with Jenkins, GitHub Actions, Terraform, and Ansible.</p>
             </div>
             <div class="skill-card">
                 <div class="skill-icon">🐳</div>
-                <h3>Containerization & Orchestration</h3>
-                <p>Proficient in using Docker for container management and Kubernetes for orchestration, ensuring efficient deployment, scaling, and monitoring of applications.</p>
+                <h3>Containerization</h3>
+                <p>Docker and Kubernetes for efficient deployment and scaling.</p>
             </div>
             <div class="skill-card">
                 <div class="skill-icon">🔒</div>
                 <h3>Monitoring & Security</h3>
-                <p>Knowledge of system monitoring tools like CloudWatch and Grafana. Focused on maintaining secure configurations, IAM role management, and ensuring compliance within cloud environments.</p>
+                <p>CloudWatch, Grafana, IAM management, and security best practices.</p>
             </div>
         </div>
     </section>
@@ -643,7 +637,7 @@ My goal is to bridge the gap between IT operations and cloud automation-ensuring
                 <div class="project-image"></div>
                 <div class="project-info">
                     <h3>AVR-360deg FT</h3>
-                    <p>A full-featured online shopping platform with payment integration, user authentication, and admin dashboard.</p>
+                    <p>Interactive 360-degree virtual reality experience platform.</p>
                     <div class="project-tags">
                         <span class="tag">HTML</span>
                         <span class="tag">CSS</span>
@@ -654,12 +648,12 @@ My goal is to bridge the gap between IT operations and cloud automation-ensuring
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
                 <div class="project-info">
-                    <h3>Automate Weather Classification</h3>
-                    <p>A modern social networking application with real-time messaging, posts, and friend connections.</p>
+                    <h3>Weather Classification</h3>
+                    <p>Automated weather classification using AI and machine learning.</p>
                     <div class="project-tags">
                         <span class="tag">AI & ML</span>
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
                     </div>
                 </div>
             </div>
@@ -667,11 +661,11 @@ My goal is to bridge the gap between IT operations and cloud automation-ensuring
                 <div class="project-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
                 <div class="project-info">
                     <h3>IT Asset Maintenance</h3>
-                    <p>An interactive analytics dashboard with beautiful data visualizations and real-time updates.</p>
+                    <p>Dashboard for tracking and managing IT infrastructure assets.</p>
                     <div class="project-tags">
                         <span class="tag">Vue.js</span>
-                        <span class="tag">D3.js</span>
-                        <span class="tag">Express</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
                     </div>
                 </div>
             </div>
@@ -687,8 +681,8 @@ My goal is to bridge the gap between IT operations and cloud automation-ensuring
             <div id="statusMessage" class="message"></div>
             
             <form class="contact-form" id="contactForm">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="user_name" placeholder="Your Name" required>
+                <input type="email" name="user_email" placeholder="Your Email" required>
                 <input type="text" name="subject" placeholder="Subject" required>
                 <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="submit-button" id="submitBtn">Send Message</button>
@@ -699,15 +693,20 @@ My goal is to bridge the gap between IT operations and cloud automation-ensuring
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="#" title="Facebook">📘</a>
-            <a href="#" title="Twitter">🐦</a>
             <a href="#" title="LinkedIn">💼</a>
-            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="GitHub">🐙</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="#" title="Email">📧</a>
         </div>
         <p>&copy; 2024 Portfolio. All rights reserved by Yeswanth.</p>
     </footer>
 
     <script>
+        // Initialize EmailJS
+        (function(){
+            emailjs.init("siWV76lpq02enP28S"); // ⭐ Replace with your EmailJS public key
+        })();
+
         // Smooth scroll effect
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -736,48 +735,43 @@ My goal is to bridge the gap between IT operations and cloud automation-ensuring
             observer.observe(el);
         });
 
-        // AJAX Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // EmailJS Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
             
             const submitBtn = document.getElementById('submitBtn');
             const statusMessage = document.getElementById('statusMessage');
-            const formData = new FormData(this);
             
-            // Disable button and show loading
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             
-            // Send form data using AJAX
-            fetch('send-email.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.success) {
+            // ⭐ Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID'
+            emailjs.sendForm('service_2l3u7pi', 'template_qqcuwyh', this)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
                     statusMessage.className = 'message success';
-                    statusMessage.textContent = '✓ ' + data.message;
+                    statusMessage.textContent = '✓ Message sent successfully! I will get back to you soon.';
                     document.getElementById('contactForm').reset();
-                } else {
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                    
+                    setTimeout(() => {
+                        statusMessage.style.display = 'none';
+                    }, 5000);
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
                     statusMessage.className = 'message error';
-                    statusMessage.textContent = '✗ ' + data.message;
-                }
-                
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    statusMessage.style.display = 'none';
-                }, 5000);
-            })
-            .catch(error => {
-                statusMessage.className = 'message error';
-                statusMessage.textContent = '✗ Failed to send message. Please try again.';
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
-            });
+                    statusMessage.textContent = '✗ Failed to send message. Please try again.';
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                    
+                    setTimeout(() => {
+                        statusMessage.style.display = 'none';
+                    }, 5000);
+                });
         });
     </script>
 </body>
