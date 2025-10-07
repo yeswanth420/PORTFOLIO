@@ -702,77 +702,93 @@
     </footer>
 
     <script>
-        // Initialize EmailJS
-        (function(){
-            emailjs.init("siWV76lpq02enP28S"); // ⭐ Replace with your EmailJS public key
-        })();
+    // Initialize EmailJS
+    (function(){
+        emailjs.init("siWV76lpq02enP28S");  // ⭐ Your Public Key (don't change if already working)
+    })();
 
-        // Smooth scroll effect
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+    // Smooth scroll effect
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
+    });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease forwards';
-                }
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 1s ease forwards';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.skill-card, .project-card').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Form Submission with Auto-Reply
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMessage = document.getElementById('statusMessage');
+        
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        
+        // ⭐⭐⭐ SEND EMAIL TO YOU (Notification) ⭐⭐⭐
+        emailjs.sendForm('service_2l3u7pi', 'template_qqcuwyh', this)
+            .then(function(response) {
+                console.log('Email sent to admin:', response.status);
+                
+                // ⭐⭐⭐ SEND AUTO-REPLY TO VISITOR ⭐⭐⭐
+                return emailjs.sendForm('service_2l3u7pi', 'template_aqn4ipm', document.getElementById('contactForm'));
+            })
+            .then(function(response) {
+                console.log('Auto-reply sent to visitor:', response.status);
+                
+                // Success message
+                statusMessage.className = 'message success';
+                statusMessage.textContent = '✓ Message sent successfully! Check your email for confirmation.';
+                document.getElementById('contactForm').reset();
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+                
+            })
+            .catch(function(error) {
+                console.log('FAILED...', error);
+                
+                // Error message
+                statusMessage.className = 'message error';
+                statusMessage.textContent = '✗ Failed to send message. Please try again.';
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-card, .project-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // EmailJS Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const statusMessage = document.getElementById('statusMessage');
-            
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            
-            // ⭐ Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID'
-            emailjs.sendForm('service_2l3u7pi', 'template_qqcuwyh', this)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    statusMessage.className = 'message success';
-                    statusMessage.textContent = '✓ Message sent successfully! I will get back to you soon.';
-                    document.getElementById('contactForm').reset();
-                    
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                    
-                    setTimeout(() => {
-                        statusMessage.style.display = 'none';
-                    }, 5000);
-                    
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    statusMessage.className = 'message error';
-                    statusMessage.textContent = '✗ Failed to send message. Please try again.';
-                    
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                    
-                    setTimeout(() => {
-                        statusMessage.style.display = 'none';
-                    }, 5000);
-                });
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
