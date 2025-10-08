@@ -299,87 +299,124 @@
         }
         
         /* Projects Section */
-        .projects {
-            padding: 100px 50px;
-            background: #0a0a0a;
-        }
-        
-        .projects-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        
-        .project-card {
-            background: #1a1a1a;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 50px rgba(255, 107, 107, 0.3);
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-image::after {
-            content: 'VIEW PROJECT';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .project-card:hover .project-image::after {
-            opacity: 1;
-        }
-        
-        .project-info {
-            padding: 30px;
-        }
-        
-        .project-info h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #ff6b6b;
-        }
-        
-        .project-info p {
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .project-tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            padding: 5px 15px;
-            background: rgba(78, 205, 196, 0.2);
-            border-radius: 20px;
-            font-size: 12px;
-            color: #4ecdc4;
-            border: 1px solid #4ecdc4;
-        }
+.projects {
+    padding: 100px 50px;
+    background: #0a0a0a;
+}
+
+.projects-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px rgba(255, 107, 107, 0.3);
+}
+
+/* ⭐⭐⭐ UPDATED - PROJECT IMAGE WITH ACTUAL IMAGES ⭐⭐⭐ */
+.project-image {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea, #764ba2); /* Fallback gradient */
+}
+
+/* The actual project image */
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;               /* Covers entire area */
+    transition: transform 0.5s ease;
+}
+
+/* Zoom effect on hover */
+.project-card:hover .project-image img {
+    transform: scale(1.1);           /* Slight zoom */
+}
+
+/* Dark overlay that appears on hover */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);  /* Dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;                       /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+/* Show overlay on hover */
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+/* "VIEW PROJECT" text styling */
+.view-project {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    border: 2px solid white;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.project-card:hover .view-project {
+    background: white;
+    color: #667eea;
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 30px;
+}
+
+.project-info h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #ff6b6b;
+}
+
+.project-info p {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 5px 15px;
+    background: rgba(78, 205, 196, 0.2);
+    border-radius: 20px;
+    font-size: 12px;
+    color: #4ecdc4;
+    border: 1px solid #4ecdc4;
+}
         /* Certificates Section */
 .certificates {
     padding: 100px 50px;
@@ -815,49 +852,75 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image"></div>
-                <div class="project-info">
-                    <h3>AVR-360deg FT</h3>
-                    <p>The project was developed for an educational institution to add location details like latitude and longitude to photos or places.
+    <!-- Projects Section -->
+<section class="projects" id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+        
+        <!-- Project Card 1 - AVR-360deg FT -->
+        <div class="project-card">
+            <div class="project-image">
+                <!-- ⭐ ADD ACTUAL IMAGE HERE -->
+                <img src="images/Project/avr-360.jpg" alt="AVR-360deg FT Project">
+                <div class="project-overlay">
+                    <span class="view-project">AVR-360</span>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>AVR-360deg FT</h3>
+                <p>The project was developed for an educational institution to add location details like latitude and longitude to photos or places.
 It helps to identify and display the exact location on a map easily.</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JS</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-                <div class="project-info">
-                    <h3>Weather Classification</h3>
-                    <p>In the Automated Weather Classification project, we used Python, Machine Learning, and OpenCV.
-The project automatically detects and classifies weather conditions such as sunny, cloudy, or rainy from images.</p>
-                    <div class="project-tags">
-                        <span class="tag">AI & ML</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Jupyter Notebook</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
-                <div class="project-info">
-                    <h3>IT Asset Maintenance</h3>
-                    <p>Dashboard for tracking and managing IT infrastructure assets.</p>
-                    <div class="project-tags">
-                        <span class="tag">Full Stack</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Mysql</span>
-                    </div>
+                <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Project Card 2 - Weather Classification -->
+        <div class="project-card">
+            <div class="project-image">
+                <!-- ⭐ ADD ACTUAL IMAGE HERE -->
+                <img src="images/Project/weather-classification.jpg" alt="Weather Classification Project">
+                <div class="project-overlay">
+                    <span class="view-project">AWC</span>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>Automate Weather Classification</h3>
+                <p>In the Automated Weather Classification project, we used Python, Machine Learning, and OpenCV.
+The project automatically detects and classifies weather conditions such as sunny, cloudy, or rainy from images.</p>
+                <div class="project-tags">
+                    <span class="tag">AI & ML</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Jupyder</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 3 - IT Asset Maintenance -->
+        <div class="project-card">
+            <div class="project-image">
+                <!-- ⭐ ADD ACTUAL IMAGE HERE -->
+                <img src="images/Project/it-asset-dashboard.jpg" alt="IT Asset Maintenance Project">
+                <div class="project-overlay">
+                    <span class="view-project">IT Asset </span>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>IT Asset Maintenance</h3>
+                <p>Comprehensive dashboard for tracking, monitoring, and managing IT infrastructure assets with real-time analytics.</p>
+                <div class="project-tags">
+                    <span class="tag">Full Stack</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Mysql</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
     <!-- Certificates Section -->
 <section class="certificates" id="certificates">
     <h2 class="section-title">Certifications & Achievements</h2>
