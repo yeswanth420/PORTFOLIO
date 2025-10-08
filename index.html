@@ -380,6 +380,185 @@
             color: #4ecdc4;
             border: 1px solid #4ecdc4;
         }
+        /* Certificates Section */
+.certificates {
+    padding: 100px 50px;
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+}
+
+.certificates-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.certificate-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.certificate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.certificate-card:hover::before {
+    left: 100%;
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+    border-color: #ff6b6b;
+}
+
+.certificate-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    text-align: center;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-badge img {
+    max-width: 120px;
+    max-height: 120px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+    transition: transform 0.3s;
+}
+
+.certificate-card:hover .certificate-badge img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.certificate-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ff6b6b;
+    line-height: 1.3;
+}
+
+.certificate-issuer {
+    color: #4ecdc4;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.certificate-date {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.certificate-id {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+}
+
+.certificate-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.cert-btn {
+    flex: 1;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid;
+}
+
+.cert-btn.download {
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+    color: white;
+    border-color: transparent;
+}
+
+.cert-btn.download:hover {
+    background: linear-gradient(45deg, #45b7d1, #4ecdc4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+}
+
+.cert-btn.verify {
+    background: transparent;
+    color: #4ecdc4;
+    border-color: #4ecdc4;
+}
+
+.cert-btn.verify:hover {
+    background: #4ecdc4;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+}
+
+/* Certificate Badge Variations */
+.certificate-card:nth-child(1) .certificate-badge {
+    background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%); /* AWS Orange */
+}
+
+.certificate-card:nth-child(2) .certificate-badge {
+    background: linear-gradient(135deg, #2496ED 0%, #1A73E8 100%); /* Docker Blue */
+}
+
+.certificate-card:nth-child(3) .certificate-badge {
+    background: linear-gradient(135deg, #326CE5 0%, #1A4D9F 100%); /* Kubernetes Blue */
+}
+
+.certificate-card:nth-child(4) .certificate-badge {
+    background: linear-gradient(135deg, #FCC624 0%, #F8A800 100%); /* Linux Yellow */
+}
+
+.certificate-card:nth-child(5) .certificate-badge {
+    background: linear-gradient(135deg, #0078D4 0%, #005A9E 100%); /* Azure Blue */
+}
+
+.certificate-card:nth-child(6) .certificate-badge {
+    background: linear-gradient(135deg, #7B42BC 0%, #5C3A9D 100%); /* Terraform Purple */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certificate-buttons {
+        flex-direction: column;
+    }
+}
         
         /* Contact Section */
         .contact {
@@ -560,6 +739,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#certificates">Certificates</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -671,6 +851,139 @@
             </div>
         </div>
     </section>
+    <!-- Certificates Section -->
+<section class="certificates" id="certificates">
+    <h2 class="section-title">Certifications & Achievements</h2>
+    <div class="certificates-grid">
+        
+        <!-- Certificate Card 1 -->
+        <div class="certificate-card">
+            <div class="certificate-badge">
+                <img src="images/certificates/aws-cloud.png" alt="AWS Certified">
+            </div>
+            <div class="certificate-content">
+                <h3>AWS Certified Cloud Practitioner</h3>
+                <p class="certificate-issuer">Amazon Web Services (AWS)</p>
+                <p class="certificate-date">Issued: January 2024</p>
+                <p class="certificate-id">Certificate ID: AWS-1234567</p>
+                <div class="certificate-buttons">
+                    <a href="images/certificates/aws-certificate.pdf" class="cert-btn download" download>
+                        📥 Download
+                    </a>
+                    <a href="https://aws.amazon.com/verification" class="cert-btn verify" target="_blank">
+                        ✓ Verify
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Card 2 -->
+        <div class="certificate-card">
+            <div class="certificate-badge">
+                <img src="images/certificates/docker.png" alt="Docker Certified">
+            </div>
+            <div class="certificate-content">
+                <h3>Docker Certified Associate</h3>
+                <p class="certificate-issuer">Docker, Inc.</p>
+                <p class="certificate-date">Issued: December 2023</p>
+                <p class="certificate-id">Certificate ID: DCA-7654321</p>
+                <div class="certificate-buttons">
+                    <a href="images/certificates/docker-certificate.pdf" class="cert-btn download" download>
+                        📥 Download
+                    </a>
+                    <a href="https://credentials.docker.com" class="cert-btn verify" target="_blank">
+                        ✓ Verify
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Card 3 -->
+        <div class="certificate-card">
+            <div class="certificate-badge">
+                <img src="images/certificates/kubernetes.png" alt="Kubernetes Certified">
+            </div>
+            <div class="certificate-content">
+                <h3>Kubernetes Administrator (CKA)</h3>
+                <p class="certificate-issuer">Cloud Native Computing Foundation</p>
+                <p class="certificate-date">Issued: November 2023</p>
+                <p class="certificate-id">Certificate ID: CKA-9876543</p>
+                <div class="certificate-buttons">
+                    <a href="images/certificates/kubernetes-certificate.pdf" class="cert-btn download" download>
+                        📥 Download
+                    </a>
+                    <a href="https://training.linuxfoundation.org/certification/verify" class="cert-btn verify" target="_blank">
+                        ✓ Verify
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Card 4 -->
+        <div class="certificate-card">
+            <div class="certificate-badge">
+                <img src="images/certificates/linux.png" alt="Linux Certified">
+            </div>
+            <div class="certificate-content">
+                <h3>Linux Professional Institute (LPIC-1)</h3>
+                <p class="certificate-issuer">Linux Professional Institute</p>
+                <p class="certificate-date">Issued: October 2023</p>
+                <p class="certificate-id">Certificate ID: LPI-1122334</p>
+                <div class="certificate-buttons">
+                    <a href="images/certificates/linux-certificate.pdf" class="cert-btn download" download>
+                        📥 Download
+                    </a>
+                    <a href="https://cs.lpi.org/caf/Xamman/certification" class="cert-btn verify" target="_blank">
+                        ✓ Verify
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Card 5 -->
+        <div class="certificate-card">
+            <div class="certificate-badge">
+                <img src="images/certificates/azure.png" alt="Azure Certified">
+            </div>
+            <div class="certificate-content">
+                <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
+                <p class="certificate-issuer">Microsoft</p>
+                <p class="certificate-date">Issued: September 2023</p>
+                <p class="certificate-id">Certificate ID: AZ-5544332</p>
+                <div class="certificate-buttons">
+                    <a href="images/certificates/azure-certificate.pdf" class="cert-btn download" download>
+                        📥 Download
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/" class="cert-btn verify" target="_blank">
+                        ✓ Verify
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Card 6 -->
+        <div class="certificate-card">
+            <div class="certificate-badge">
+                <img src="images/certificates/terraform.png" alt="Terraform Certified">
+            </div>
+            <div class="certificate-content">
+                <h3>HashiCorp Certified: Terraform Associate</h3>
+                <p class="certificate-issuer">HashiCorp</p>
+                <p class="certificate-date">Issued: August 2023</p>
+                <p class="certificate-id">Certificate ID: HC-6677889</p>
+                <div class="certificate-buttons">
+                    <a href="images/certificates/terraform-certificate.pdf" class="cert-btn download" download>
+                        📥 Download
+                    </a>
+                    <a href="https://www.credly.com/badges/" class="cert-btn verify" target="_blank">
+                        ✓ Verify
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
