@@ -437,8 +437,11 @@
 }
 
 .certificate-badge img {
-    max-width: 120px;
-    max-height: 120px;
+     max-width: 200px;           /* Increased from 120px */
+    max-height: 200px;          /* Increased from 120px */
+    width: 100%;                /* Make it fill the space */
+    height: auto;               /* Maintain aspect ratio */
+    object-fit: contain;        /* Fit image within bounds */
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
     transition: transform 0.3s;
 }
