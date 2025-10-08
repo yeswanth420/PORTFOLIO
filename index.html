@@ -427,21 +427,23 @@
 }
 
 .certificate-badge {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 30px;
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px !important;         /* ⭐ More padding */
     text-align: center;
-    min-height: 180px;
+    min-height: 350px !important;     /* ⭐ Taller container */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .certificate-badge img {
-     max-width: 200px;           /* Increased from 120px */
-    max-height: 200px;          /* Increased from 120px */
-    width: 100%;                /* Make it fill the space */
-    height: auto;               /* Maintain aspect ratio */
-    object-fit: contain;        /* Fit image within bounds */
+    max-width: 250px !important;      /* ⭐ Force bigger size */
+    max-height: 250px !important;     /* ⭐ Force bigger size */
+    min-width: 250px !important;      /* ⭐ Force minimum size */
+    min-height: 250px !important;     /* ⭐ Force minimum size */
+    width: 250px !important;          /* ⭐ Fixed size */
+    height: 250px !important;         /* ⭐ Fixed size */
+    object-fit: contain !important;
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
     transition: transform 0.3s;
 }
